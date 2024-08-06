@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
+import { ThemeProvider } from '@/components/theme-provider'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+import Nav from '@/components/app-nav'
+import CustomLink from '@/components/custom-link'
+import { Button } from '@/components/ui/button'
+
+const font = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'Blog',
-	description: 'Blog on NextJS with posts remove, add and edit funcs',
+	title: 'NextBlog: Write or edit your posts',
 }
 
 export default function RootLayout({
@@ -16,7 +20,24 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={font.className}>
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Nav>
+						<CustomLink href='/'>Homepage</CustomLink>
+						<CustomLink href='/contact'>Contact</CustomLink>
+						<CustomLink href='/about'>About</CustomLink>
+						<CustomLink href='/login'>
+							<Button>Login</Button>
+						</CustomLink>
+					</Nav>
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	)
 }
