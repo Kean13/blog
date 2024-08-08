@@ -3,14 +3,14 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import Nav from '@/components/app-nav'
+import Nav from '@/components/nav/nav-nav'
 import CustomLink from '@/components/custom-link'
 import { Button } from '@/components/ui/button'
 
 const font = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'NextBlog: Write or edit your posts',
+	title: 'NextMind: Write or edit your posts',
 }
 
 export default function RootLayout({
@@ -27,14 +27,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Nav>
-						<CustomLink href='/'>Homepage</CustomLink>
-						<CustomLink href='/contact'>Contact</CustomLink>
-						<CustomLink href='/about'>About</CustomLink>
-						<CustomLink href='/login'>
-							<Button>Login</Button>
-						</CustomLink>
-					</Nav>
+					<Nav />
 					{children}
 				</ThemeProvider>
 			</body>
