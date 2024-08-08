@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from '@/components/theme-provider'
 import { Inter } from 'next/font/google'
-import './globals.css'
 
-import Nav from '@/components/nav/nav-nav'
-import CustomLink from '@/components/custom-link'
-import { Button } from '@/components/ui/button'
+import { ThemeProvider } from '@/components/theme-provider'
+
+import './globals.css'
 
 const font = Inter({ subsets: ['latin'] })
 
@@ -27,7 +25,6 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Nav />
 					{children}
 				</ThemeProvider>
 			</body>
